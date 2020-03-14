@@ -57,13 +57,13 @@ function UserList({ match }) {
                 </a>
               </td>
               <td>
-                <Link to={"/posts/?userId=" + user.id}>
+                <Link to={"/post-list/" + user.id + "/" + user.name}>
                   <Button variant="primary">
                     <FaBookOpen style={{ marginBottom: 3 }} /> View Posts
                   </Button>
                 </Link>
                 &nbsp;
-                <Link to={"/albums/?userId=" + user.id}>
+                <Link to={"/album-list/" + user.id + "/" + user.name}>
                   <Button variant="danger">
                     <FaCameraRetro style={{ marginBottom: 3 }} /> View Albums
                   </Button>

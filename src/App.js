@@ -2,11 +2,13 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import NavigationBar from "./components/NavigationBar";
-// import Album from "./pages/Album";
+import AlbumList from "./pages/AlbumList";
 // import Post from "./pages/Post";
 // import PostList from "./pages/PostList";
+import User from "./pages/User";
 import UserList from "./pages/UserList";
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import PostList from "./pages/PostList";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -15,10 +17,9 @@ function App() {
         <NavigationBar />
         <Switch>
           <Route path="/" exact component={UserList} />
-          {/* <Route path="/album/:countryId" component={Competition} />
-          <Route path="/clubs/:competitionId" component={Clubs} />
-          <Route path="/club-profile/:clubId" component={ClubProfile} />
-          <Route path="/player-profile/:playerId" component={PlayerProfile} /> */}
+          <Route path="/post-list/:userId/:userName" component={PostList} />
+          <Route path="/album-list/:userId/:userName" component={AlbumList} />
+          <Route path="/user/:userId" component={User} />
         </Switch>
       </div>
     </Router>
