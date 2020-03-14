@@ -44,7 +44,7 @@ function AlbumList({ match }) {
             <tr key={album.id}>
               <td>
                 <Link
-                  to={"/album/" + album.id}
+                  to={"/album/" + album.id + "/" + match.params.userName + "/" + album.title}
                   style={{ textTransform: "capitalize" }}
                 >
                   {album.title}
