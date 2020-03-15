@@ -154,6 +154,7 @@ function Post({ match }) {
         setStillLoading(false);
       } else {
         alert("Error updating post!");
+        setIsEditing(false);
         setStillLoading(false);
       }
     }
@@ -175,7 +176,7 @@ function Post({ match }) {
           body: JSON.stringify({
             name: newCommentName,
             email: newCommentEmail,
-            body: newCommentText,
+            body: newCommentText
           }),
           headers: {
             "Content-type": "application/json; charset=UTF-8"
@@ -183,7 +184,6 @@ function Post({ match }) {
         }
       );
       if (data.status === 200 || data.status === 201) {
-
         let editedComment = comments.map(comment => {
           if (comment.id === newCommentId) {
             comment.name = newCommentName;

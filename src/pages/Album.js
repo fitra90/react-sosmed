@@ -82,7 +82,9 @@ function Album({ match }) {
 
         <Modal show={show} size="lg" onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>{imageLarge[1]}</Modal.Title>
+            <Modal.Title style={{ textTransform: "capitalize" }}>
+              {imageLarge[1]}
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body style={{ alignSelf: "center" }}>
             <img src={imageLarge[0]} />

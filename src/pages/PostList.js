@@ -54,6 +54,7 @@ function PostList({ match }) {
   };
 
   const deletePost = async deletePostId => {
+    setStillLoading(true);
     const data = await fetch(
       `https://jsonplaceholder.typicode.com/posts/${deletePostId}`,
       {
@@ -61,12 +62,12 @@ function PostList({ match }) {
       }
     );
     if (data.status == 200 || data.status === 201) {
-      alert("Post has been deleted!");
-
       let newPostList = postLists.filter(post => post.id != deletePostId);
       setPostLists(newPostList);
+      setStillLoading(false);
     } else {
       alert("Error deleting post!");
+      setStillLoading(false);
     }
   };
 
