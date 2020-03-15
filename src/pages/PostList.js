@@ -25,10 +25,7 @@ function PostList({ match }) {
   return (
     <div className="container">
       <Breadcrumb style={{ marginTop: 10 }}>
-        <Breadcrumb.Item>
-          {" "}
-          <Link to="/">User List</Link>
-        </Breadcrumb.Item>
+        <Breadcrumb.Item href="/">User List</Breadcrumb.Item>
         <Breadcrumb.Item active>
           Post of {match.params.userName}
         </Breadcrumb.Item>
@@ -46,7 +43,7 @@ function PostList({ match }) {
             <tr key={post.id}>
               <td>
                 <Link
-                  to={"/post/" + post.id}
+                  to={"/post/" + post.id + "/" + match.params.userName}
                   style={{ textTransform: "capitalize" }}
                 >
                   {post.title}
