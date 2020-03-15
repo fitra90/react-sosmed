@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Table, Breadcrumb, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaBookOpen, FaCameraRetro } from "react-icons/fa";
+import Loading from "./../components/Loading";
+
 
 function User({ match }) {
   useEffect(() => {
@@ -12,6 +14,7 @@ function User({ match }) {
   const [phone, setPhone] = useState([]);
   const [company, setCompany] = useState([]);
   const [address, setAddress] = useState([]);
+  const [stillLoading, setStillLoading] = useState(true);
 
   const getUser = async () => {
     const data = await fetch(
@@ -28,12 +31,13 @@ function User({ match }) {
     const rawPhone = items[0].phone;
     const phoneRaw = rawPhone.split(" ");
     setPhone(phoneRaw[0]);
+    setStillLoading(false);
+
   };
 
-  const phoneFixer = phone => {
-    var res = phone.split(" ");
-    return res[0];
-  };
+  if (stillLoading) {
+    return <Loading />;
+  } else {
 
   return (
     <div className="container">
@@ -96,6 +100,7 @@ function User({ match }) {
       </Table>
     </div>
   );
+  }
 }
 
 export default User;
